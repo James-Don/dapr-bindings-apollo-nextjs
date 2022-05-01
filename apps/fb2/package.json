@@ -1,0 +1,26 @@
+{
+  "name": "fb2",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "event-target-polyfill": "0.0.3",
+    "graphql-react": "^18.0.0",
+    "next": "12.1.5",
+    "next-graphql-react": "^12.0.0",
+    "query-string": "^7.1.1",
+    "react": "18.1.0",
+    "react-app-polyfill": "^3.0.0",
+    "react-dom": "18.1.0"
+  },
+  "devDependencies": {
+    "eslint": "8.14.0",
+    "eslint-config-next": "12.1.5"
+  }
+}

@@ -1,0 +1,12 @@
+apiVersion: dapr.io/v1alpha1
+kind: Component
+metadata:
+  name: graphqlbinding
+spec:
+  type: bindings.graphql
+  version: v1
+  metadata:
+    - name: endpoint
+      value:  https://graphqlzero.almansi.me/api
+    - name: header:Cache-Control
+      value: no-cache
