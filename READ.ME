@@ -1,1 +1,32 @@
 dapr experimental project
+
+Code challenge memo
+
+Steps to start DAPR locally
+
+install dapr
+create http binding component (admin\.dapr)
+create graphQL binding component (admin\.dapr)
+
+Solution 1: GrapghQL binding + express(convert/forward), 
+dapr run --app-id expressgql --app-port 3001 --dapr-http-port 3500 --dapr-grpc-port 3501 node apps/expressgql/index.js
+or
+Solution 2: DAPR HTTP binding + Apollo,
+dapr run --app-id apollogql --app-port 4000 --dapr-http-port 3500 --dapr-grpc-port 3501 node apps/apollogql/index.js
+
+Solution 3: DAPR GraphQL binding + DAPR Binding Go SDK + Go GraphQL Service
+Not completed
+
+Notes on the format of request to DAPR bindings:
+
+Standard GraphQL request:
+curl --location --request POST 'https://graphqlzero.almansi.me/api' \
+--header 'Content-Type: application/json' \
+--data-raw '{"query":"query {\n  post(id: 1) {\n    id\n    title\n    body\n  }\n}","variables":{}}'
+
+
+DAPR binding request:
+curl --location --request POST 'http://localhost:3500/v1.0/bindings/graphqlbinding' \
+--header 'Content-Type: application/json' \
+--data-raw '{"operation":"query","metadata":{"query":"query { post(id:1) { id title } }"}}'
+
